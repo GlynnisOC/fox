@@ -4,4 +4,19 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def new
+    @user = User.new
+  end
+
+  def create
+    @user = User.find_or_create_by(user_params)
+    @user.save
+    redirect_to users_path
+  end
+
+  private
+  def user_params
+    params.require(:user).permit(:name, :email, :password)
+  end
+
 end

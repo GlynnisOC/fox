@@ -15,12 +15,10 @@ RSpec.describe "when visitor views index page" do
     expect(page).to have_content("Shelby")
   end
 
-  it "" do
+  it "allows visitor to register as user" do
+    visit users_path
+
+    click_link("Register as User")
+    # expect(current_path).to eq(new_user_path)
   end
 end
-
-# And click on 'Register as User'
-# I am taken to a new user form
-# When I fill out that form and click 'Create User'
-# I am redirected back to user index
-# And see the new user
